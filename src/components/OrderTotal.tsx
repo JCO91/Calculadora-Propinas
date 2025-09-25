@@ -18,7 +18,7 @@ const tipAmount = useMemo(()=>subTotalAmount * tip, [tip,order]) // se ejecutara
 const totalAmount = useMemo(()=>subTotalAmount + tipAmount,[tip, order])
     return (
         <div className="space-y-3">
-            <h2 className="font-black">Total y Propinas:</h2>
+            <h2 className="font-black">Totalaaa y Propinas:</h2>
             <p>Subtotal:
                 <span className="font-black">{formatCurrency(subTotalAmount)}</span>
             </p> 
