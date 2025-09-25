@@ -14,6 +14,7 @@ export default function OrderTotal({order, tip}: OrderTotalProp) {
 }, [order]);
 
 const tipAmount = useMemo(()=>subTotalAmount * tip, [tip,order]) // se ejecutara cuando cmabie tip o order
+const totalAmount = useMemo(()=>subTotalAmount + tipAmount,[tip, order])
     return (
         <div className="space-y-3">
             <h2 className="font-black">Total y Propinas:</h2>
@@ -24,7 +25,7 @@ const tipAmount = useMemo(()=>subTotalAmount * tip, [tip,order]) // se ejecutara
                 <span className="font-black"> {formatCurrency(tipAmount)} </span>
             </p>
             <p>Total:
-                <span className="font-black"> 0 </span>
+                <span className="font-black">{formatCurrency(totalAmount)} </span>
             </p>
             <button>
                 
