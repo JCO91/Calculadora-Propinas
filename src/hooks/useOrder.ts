@@ -7,7 +7,6 @@ export default function useOrder(){
     const [tip,setTip] =useState(0);
 
     const addItem = ( item : MenuItems ) => {
-        
         const itemExist = order.find(orderItem => (orderItem.id === item.id)) // buscamos en el state
         
         if(itemExist){
@@ -24,13 +23,17 @@ export default function useOrder(){
      setOrder(order.filter(item => item.id !== id )) //recogemos todos los que no sea el id que le pasamos 
    }
 
-   
+   const placeOrder = () => {
+     setOrder([])
+     setTip(0)
+   }
 
     return{
        order,
        tip,
        setTip,
        addItem,
-       removeItem
+       removeItem,
+       placeOrder
     }
 }

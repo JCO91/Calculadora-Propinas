@@ -17,23 +17,25 @@ const tipOptions = [
 ]
 type TipProcentageFormProps = {
   setTip: React.Dispatch<React.SetStateAction<number>>,
+  tip : number
 }
 
-export default function TipProcentageForm({ setTip }: TipProcentageFormProps) {
+export default function TipProcentageForm({ setTip, tip }: TipProcentageFormProps) {
   return (
     <div>
       <h3 className="font-black text-2xl">Propina</h3>
       <form>
-        {tipOptions.map(tip =>
-          <div key={tip.id} className="flex gap-2">
-            <label htmlFor={tip.id}>{tip.label}</label>
+        {tipOptions.map(tipOption =>
+          <div key={tipOption.id} className="flex gap-2">
+            <label htmlFor={tipOption.id}>{tipOption.label}</label>
             <input
-              id={tip.id}
+              id={tipOption.id}
               type="radio"
               name="tip"
-              value={tip.value}
+              value={tipOption.value}
               onChange={e => setTip(+e.target.value)} // Cadda vez que cambiemos accederemos al valor del target, poniendo el mas lee decimos que sera de tipo number como el type
-            />
+              checked ={tipOption.value === tip} // en caso de que sean iguales van a estar habilitados
+          />
           </div>
         )}
       </form>

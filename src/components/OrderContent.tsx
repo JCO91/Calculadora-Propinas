@@ -11,16 +11,14 @@ export default function OrderContent({order, removeItem}: OrderImemsProp) {
     <div>
       <h2 className="text-4xl font-black ">Consumo</h2>
       <div className="mt-10 space-y-3">
-        {order.length === 0 ? <p>la orden esta vacia</p>
-         : 
-         order.map(item=>(
+        {order.map(item=>(
           <div className="flex justify-between border-t border-gray-300 last-of-type:border-b py-2 items-center" key = {item.id}>
             <div>
                <p>{item.name}-{formatCurrency(item.price)}e</p>
                <p className="font-black">Cantidad {item.quantity} - {formatCurrency(item.quantity* item.price)}</p>
             </div>
            
-           <button className="bg-indigo-400 h-8 w-8 items-center rounded-full text-white"
+           <button className="bg-indigo-400 h-8 w-8 items-center rounded-full text-white cursor-po"
             onClick = {()=>removeItem(item.id)}
            >
              X
