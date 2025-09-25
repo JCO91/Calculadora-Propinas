@@ -16,8 +16,7 @@ const tipOptions = [
   },
 ]
 type TipProcentageFormProps = {
-  setTip: React.Dispatch<React.SetStateAction<number>>
-
+  setTip: React.Dispatch<React.SetStateAction<number>>,
 }
 
 export default function TipProcentageForm({ setTip }: TipProcentageFormProps) {
