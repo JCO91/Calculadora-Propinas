@@ -1,3 +1,4 @@
+import { formatCurrency } from "../helpers";
 import type { MenuItems, OrderItem } from "../type/type"
 
 type OrderImemsProp ={
@@ -15,8 +16,8 @@ export default function OrderContent({order, removeItem}: OrderImemsProp) {
          order.map(item=>(
           <div className="flex justify-between border-t border-gray-300 last-of-type:border-b py-2 items-center" key = {item.id}>
             <div>
-               <p>{item.name}-{item.price}e</p>
-               <p className="font-black">Cantidad {item.quantity} - {item.quantity* item.price}e</p>
+               <p>{item.name}-{formatCurrency(item.price)}e</p>
+               <p className="font-black">Cantidad {item.quantity} - {formatCurrency(item.quantity* item.price)}</p>
             </div>
            
            <button className="bg-indigo-400 h-8 w-8 items-center rounded-full text-white"
